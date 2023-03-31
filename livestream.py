@@ -3,7 +3,7 @@ import numpy as np
 thres = 0.45 # Threshold to detect object
 nms_threshold = 0.2
 
-capture = cv2.VideoCapture('https://10.16.85.99:8080/video')
+capture = cv2.VideoCapture('https://10.16.149.238:8080/video')
 
 classNames= []
 classFile = 'coco.names'

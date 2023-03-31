@@ -12,7 +12,7 @@ firebase_admin.initialize_app(cred,{
     'databaseURL':'https://occupeye-dedb8-default-rtdb.asia-southeast1.firebasedatabase.app/'
 })
 
-ref = db.reference('/')
+ref = db.reference('/').child('Locations').child('StudyRoom1')
 
 
 
@@ -49,7 +49,7 @@ def sendData(users):
 lastCalled = 0
 
 ## Object detection stuff
-cap = cv2.VideoCapture('https://10.16.85.99:8080/video')
+cap = cv2.VideoCapture('https://10.16.149.238:8080/video')
 net = cv2.dnn.readNetFromONNX("yolov5n.onnx")
 file = open("coco.txt","r")
 classes = file.read().split('\n')
@@ -60,7 +60,7 @@ while True:
     img = cap.read()[1]
     if img is None:
         break
-    # img = cv2.resize(img, (1000,600))
+    img = cv2.resize(img, (1000,600))
     blob = cv2.dnn.blobFromImage(img,scalefactor= 1/255,size=(640,640),mean=[0,0,0],swapRB= True, crop= False)
     net.setInput(blob)
     detections = net.forward()[0]
