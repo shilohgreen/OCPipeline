@@ -8,19 +8,32 @@ firebase_admin.initialize_app(cred,{
     'databaseURL':'https://occupeye-dedb8-default-rtdb.asia-southeast1.firebasedatabase.app/'
 })
 
-ref = db.reference('/').child('Locations').child('StudyRoom1')
+ref = db.reference('/')
 
 def sendData():
     ref.set({
         "Locations": {
             "Block 55" : {
-                "Level-7":{
+                "Level-4-Study-Room":{
                     "Room Capacity": "10",
                     "Users": None,        
                     "Colour Grading": "White"
-                }
+                },
+                "Level-6-Study-Room":{
+                    "Room Capacity": "10",
+                    "Users": None,        
+                    "Colour Grading": "White"
+                },"Level-7-Study-Room":{
+                    "Room Capacity": "10",
+                    "Users": None,        
+                    "Colour Grading": "White"
+                },
             },
-            "Block 57" : {}
+            "Block 57" : {
+        
+            }
         }
     })
+
+sendData()
 
