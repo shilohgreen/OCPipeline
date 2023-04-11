@@ -12,7 +12,7 @@ firebase_admin.initialize_app(cred,{
     'databaseURL':'https://occupeye-dedb8-default-rtdb.asia-southeast1.firebasedatabase.app/'
 })
 
-ref = db.reference('/').child('Locations').child('StudyRoom1')
+ref = db.reference('/').child('Locations').child('Block 55').child('Level-4-Study-Room').child('Users')
 
 
 
@@ -41,9 +41,7 @@ ref = db.reference('/').child('Locations').child('StudyRoom1')
 
 # @throttle(2)
 def sendData(users):
-    ref.set({
-        "Users":users
-    })
+    ref.set(users)
 
 
 lastCalled = 0
